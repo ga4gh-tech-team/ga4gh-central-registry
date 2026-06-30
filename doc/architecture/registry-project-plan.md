@@ -4,19 +4,19 @@
 
 | Item | Description |
 |----------|-------------|
-| Project Name | |
-| Vision | One-paragraph summary of the long-term objective |
-| Sponsor(s) | |
-| Product Owner(s) | |
-| Delivery Lead(s) | |
-| Technical Lead(s) | |
-| Start Date | |
+| Project Name | GA4GH Registry |
+| Vision | Centralise the registries from GA4GH into a single registry holding standards (specs), implementations, organisations, and people |
+| Sponsor(s) | Sasha Siegel (GA4GH Chief Product Officer) |
+| Product Owner(s) | Jimmy Payyappilly |
+| Delivery Lead(s) | Jimmy Payyappilly |
+| Technical Lead(s) | Jimmy Payyappilly |
+| Start Date | 20 May 2026 |
 | Target Completion | |
-| Current Phase | |
+| Current Phase | <ul><li>- [x] Requirements gathering </li><li>- [ ] Initial development </li><li>- [ ] Demo and validation </li><li>- [ ] Initial release </li><li>- [ ] Enhancements </li></ul> |
 
 ---
 
-# 2. Stakeholder & Persona Map
+## 2. Stakeholder & Persona Map
 
 | Persona | Role | Goals | Pain Points | Success Measures |
 |----------|------|---------|--------------|------------------|
@@ -28,19 +28,19 @@
 
 ---
 
-# 3. Solution Landscape
+## 3. Solution Landscape
 
-## Core Components
+### Core Components
 
-| Component | Purpose | Owner |
+| Component | Purpose | System/technology |
 |------------|----------|---------|
-| Portal/UI | User interaction | |
-| API Layer | System integration | |
-| Authentication | Identity & access | |
-| Metadata Service | Discovery | |
-| Reporting Service | Analytics | |
+| Portal/UI | User interaction | React UI |
+| API Layer | System integration | Java, Sprint Boot|
+| Authentication | Identity & access | GA4GH Passport |
+| Metadata Service | Discovery | Attio |
+| Reporting Service | Analytics | Attio |
 
-## Key Endpoints
+### Key Endpoints
 
 | Endpoint | Description | Consumer |
 |-----------|-------------|------------|
@@ -51,7 +51,7 @@
 
 ---
 
-# 4. Use Case Catalogue
+## 4. Use Case Catalogue
 
 | ID | Use Case | Primary Persona | Priority |
 |----|-----------|----------------|----------|
@@ -62,7 +62,7 @@
 
 ---
 
-# 5. Milestone Roadmap (Primary View)
+## 5. Milestone Roadmap (Primary View)
 
 | Milestone | Date | Event/Outcome | Personas Impacted | Key Use Cases | Success Criteria |
 |------------|--------|----------------|-------------------|---------------|------------------|
@@ -73,31 +73,31 @@
 
 ---
 
-# 6. Milestone Detail Pages
+## 6. Milestone Detail Pages
 
-## M1 — Initial Discovery Demonstration
+### M1 — Initial Discovery Demonstration
 
-### Objective
+#### Objective
 
 Demonstrate a usable discovery experience and API access.
 
-### Event
+#### Event
 
 **15 September 2026**
 
-### Personas Served
+#### Personas Served
 
 - Researcher
 - Developer
 
-### Use Cases Included
+#### Use Cases Included
 
 | Use Case |
 |-----------|
 | UC-01 Discover datasets |
 | UC-03 Retrieve metadata |
 
-### Deliverables
+#### Deliverables
 
 | Deliverable | Status |
 |-------------|---------|
@@ -105,13 +105,13 @@ Demonstrate a usable discovery experience and API access.
 | Discovery UI | |
 | Metadata service | |
 
-### Acceptance Criteria
+#### Acceptance Criteria
 
 - Search returns expected results.
 - Metadata accessible through API.
 - Demonstration completed with stakeholders.
 
-### Dependencies
+#### Dependencies
 
 | Dependency | Owner |
 |------------|--------|
@@ -119,7 +119,7 @@ Demonstrate a usable discovery experience and API access.
 | Infrastructure | |
 | Authentication | |
 
-### Risks
+#### Risks
 
 | Risk | Mitigation |
 |--------|-------------|
@@ -128,31 +128,31 @@ Demonstrate a usable discovery experience and API access.
 
 ---
 
-## M2 — Federated Collaboration Release
+### M2 — Federated Collaboration Release
 
-### Objective
+#### Objective
 
 Support cross-organisational collaboration workflows.
 
-### Event
+#### Event
 
 **April 2027**
 
-### Personas Served
+#### Personas Served
 
 - Researcher
 - Data Steward
 - Developer
 - Administrator
 
-### Use Cases Included
+#### Use Cases Included
 
 - UC-01
 - UC-02
 - UC-03
 - UC-04
 
-### Success Criteria
+#### Success Criteria
 
 - Federated workflows demonstrated.
 - Multiple organisations participating.
@@ -160,7 +160,7 @@ Support cross-organisational collaboration workflows.
 
 ---
 
-# 7. Agile Delivery Mapping
+## 7. Agile Delivery Mapping
 
 | Milestone | Sprint | Planned Outcome |
 |------------|---------|-----------------|
@@ -172,7 +172,7 @@ Support cross-organisational collaboration workflows.
 
 ---
 
-# 8. Traceability Matrix
+## 8. Traceability Matrix
 
 | Use Case | Persona | Endpoint | Milestone | Issues/PRs |
 |-----------|----------|-----------|------------|-------------|
@@ -183,7 +183,7 @@ Support cross-organisational collaboration workflows.
 
 ---
 
-# 9. Progress Dashboard
+## 9. Progress Dashboard
 
 | Metric | Current | Target |
 |----------|---------|----------|
@@ -195,7 +195,7 @@ Support cross-organisational collaboration workflows.
 
 ---
 
-# Recommended Visual Structure
+## Recommended Visual Structure
 
 ```text
 Personas
