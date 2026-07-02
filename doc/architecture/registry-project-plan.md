@@ -1,4 +1,4 @@
-# Multi-Year Collaborative Software Project Plan Template
+# GA4GH Registry Project Plan Template
 
 ## 1. Project Overview
 
@@ -18,13 +18,13 @@
 
 ## 2. Stakeholder & Persona Map
 
-| Persona | Role | Goals | Pain Points | Success Measures |
-|----------|------|---------|--------------|------------------|
-| Researcher | Data consumer | Discover datasets | Difficult search experience | Faster discovery |
-| Data Steward | Data provider | Publish datasets | Metadata burden | Easier publication |
-| Developer | Integrator | Access APIs | Inconsistent interfaces | Stable APIs |
-| Administrator | Governance | Monitor compliance | Limited visibility | Better reporting |
-| Program Manager | Oversight | Track adoption | Fragmented status | Milestone achievement |
+| Persona | Role | Goals |
+|----------|------|---------|
+| Collaborator | Data consumer | Discover standards (specs), implementations, schemas, organisations and people |
+| Collaborator | Data provider | Register datasets |
+| NIF member | Data consumer | Discover standards (specs), implementations, schemas, organisations and NIF members |
+| Administrator | Governance | Monitor data validity. Design enhancements |
+| GA4GH Secretariat | Data consumer, governance | Track adoption. Data validation |
 
 ---
 
@@ -55,9 +55,9 @@
 
 | ID | Use Case | Primary Persona | Priority |
 |----|-----------|----------------|----------|
-| UC-01 | Discover datasets | Researcher | High |
-| UC-02 | Submit metadata | Data Steward | High |
-| UC-03 | Retrieve metadata through API | Developer | High |
+| UC-01 | Discover datasets | Collaborator/public | High |
+| UC-02 | Submit metadata | Collaborator/Data Steward | High |
+| UC-03 | Retrieve metadata through API | Collaborator/public | High |
 | UC-04 | Monitor platform usage | Administrator | Medium |
 
 ---
