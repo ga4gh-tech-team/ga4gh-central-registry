@@ -44,10 +44,11 @@
 
 | Endpoint | Description | Consumer |
 |-----------|-------------|------------|
-| `/search` | Dataset discovery | Researchers |
-| `/metadata` | Metadata retrieval | Applications |
-| `/submit` | Data publication | Data Stewards |
-| `/reporting` | Metrics and reporting | Administrators |
+| `/api/service-info` | The implementation of the GA4GH [Service Info spec](https://github.com/ga4gh/ga4gh-service-info). | Researchers |
+| `/api/organisations` | All the organisations with implementations registered in the registry. | Researchers, (web) Applications/programs |
+| `/api/deployments` | Any codebase that works with one or more GA4GH standards. | Data Stewards, Researchers, (web) Applications/programs |
+| `/api/services` | A running web server serving genomic data according to a GA4GH API specification. | Data Stewards, Researchers, (web) Applications/programs |
+| `/api/standards` | GA4GH standards (specification). | Data Stewards, Researchers, (web) Applications/programs |
 
 ---
 
