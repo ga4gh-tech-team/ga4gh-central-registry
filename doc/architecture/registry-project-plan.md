@@ -69,8 +69,8 @@
 
 | Milestone | Date | Event/Outcome | Personas Impacted | Key Use Cases | Success Criteria |
 |------------|--------|----------------|-------------------|---------------|------------------|
-| M1 | 24 July 2026 | NIF member collaboration/discovery initial requirements gathering | NIF member | UC-01, UC-02, UC-04 | Finalise the collaboration/discovery requirements Personal profile, search and view fellow NIF members demonstrated |
-| M2 | 26 Aug 2026 | Initial demo of the revamped/redesigned registry | All personas | UC-01 to UC-04 | NIF member workflows (post login) operational |
+| M1 | 24 July 2026 | NIF member collaboration/discovery initial requirements gathering | NIF member | UC-01, UC-02, UC-04 | Finalise the collaboration/discovery requirements |
+| M2 | 26 Aug 2026 | Initial demo of the revamped/redesigned registry | All personas | UC-01 to UC-04 | NIF member workflows (without login) operational. Personal profile, search and view fellow NIF members demonstrated |
 | M3 | 18 Sep 2026 | Authentication and authorisation for login | All personas | UC-01 to UC-04, UC-06 | All workflows are operational - public view, login, edit/submit data/profile, search members |
 | M4 | TBD | Future milestone | TBD | TBD | TBD |
 
