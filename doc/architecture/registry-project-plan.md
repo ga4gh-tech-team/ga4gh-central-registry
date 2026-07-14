@@ -56,10 +56,12 @@
 
 | ID | Use Case | Primary Persona | Priority |
 |----|-----------|----------------|----------|
-| UC-01 | Discover datasets | Collaborator/public | High |
-| UC-02 | Submit metadata | Collaborator/Data Steward | High |
+| UC-01 | Discover data | Collaborator/public | High |
+| UC-02 | Submit data | Collaborator/Data Steward | High |
 | UC-03 | Retrieve metadata through API | Collaborator/public | High |
-| UC-04 | Monitor platform usage | Administrator | Medium |
+| UC-04 | People collaboration/discovery | NIF member | High | 
+| UC-05 | People collaboration/discovery | Collaborator/Community member | Medium |
+| UC-06 | Authentication and authorisation | All | High |
 
 ---
 
@@ -67,9 +69,9 @@
 
 | Milestone | Date | Event/Outcome | Personas Impacted | Key Use Cases | Success Criteria |
 |------------|--------|----------------|-------------------|---------------|------------------|
-| M1 | 15 Sept 2026 | Initial Discovery Demonstration | Researcher, Developer | UC-01, UC-03 | Search and API capabilities demonstrated |
-| M2 | Apr 2027 | Federated Collaboration Release | All personas | UC-01 to UC-04 | End-to-end workflows operational |
-| M3 | TBD | Future milestone | TBD | TBD | TBD |
+| M1 | 24 July 2026 | NIF member collaboration/discovery initial requirements gathering | NIF member | UC-01, UC-02, UC-04 | Finalise the collaboration/discovery requirements Personal profile, search and view fellow NIF members demonstrated |
+| M2 | 26 Aug 2026 | Initial demo of the revamped/redesigned registry | All personas | UC-01 to UC-04 | NIF member workflows (post login) operational |
+| M3 | 18 Sep 2026 | Authentication and authorisation for login | All personas | UC-01 to UC-04, UC-06 | All workflows are operational - public view, login, edit/submit data/profile, search members |
 | M4 | TBD | Future milestone | TBD | TBD | TBD |
 
 ---
