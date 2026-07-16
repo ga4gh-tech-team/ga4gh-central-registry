@@ -12,7 +12,7 @@
 | Technical Lead(s) | Jimmy Payyappilly |
 | Start Date | 20 May 2026 |
 | Target Completion | |
-| Current Phase | <ul><li>- [x] Requirements gathering </li><li>- [ ] Initial development </li><li>- [ ] Demo and validation </li><li>- [ ] Initial release </li><li>- [ ] Enhancements </li></ul> |
+| Current Phase | <ul><li>- [x] Requirements gathering </li><li>- [x] Initial development </li><li>- [ ] Demo and validation </li><li>- [ ] Initial release </li><li>- [ ] Enhancements </li></ul> |
 
 ---
 
@@ -71,95 +71,62 @@
 |------------|--------|----------------|-------------------|---------------|------------------|
 | M1 | 24 July 2026 | NIF member collaboration/discovery initial requirements gathering | NIF member | UC-01, UC-02, UC-04 | Finalise the collaboration/discovery requirements |
 | M2 | 26 Aug 2026 | Initial demo of the revamped/redesigned registry | All personas | UC-01 to UC-04 | NIF member workflows (without login) operational. Personal profile, search and view fellow NIF members demonstrated |
-| M3 | 18 Sep 2026 | Authentication and authorisation for login | All personas | UC-01 to UC-04, UC-06 | All workflows are operational - public view, login, edit/submit data/profile, search members |
-| M4 | TBD | Future milestone | TBD | TBD | TBD |
+| M3 | 18 Sep 2026 | Authentication and authorisation for login | All personas | UC-01 to UC-04, UC-06 | Following workflows are operational - public view, login; for NIF member: edit/submit data/profile, search members |
+| M4 | 28 Sep 2026 | Plenary | All personas | UC-01 to UC-04, UC-06 | Demo version with NIF member workflows operational |
 
 ---
 
-## 6. Milestone Detail Pages
+## 6. Milestone Details
 
-### M1 — Initial Discovery Demonstration
+### M1 — NIF member collaboration/discovery initial requirements gathering 
 
 #### Objective
 
-Demonstrate a usable discovery experience and API access.
+Capture the clarifications and decisions made during the requirements validation session, incorporating feedback on the initial requirements. 
 
 #### Event
 
-**15 September 2026**
+**2 July 2026**
 
 #### Personas Served
 
-- Researcher
-- Developer
+- Collaborator
+- Administrator
+- GA4GH Secretariat
 
 #### Use Cases Included
 
 | Use Case |
 |-----------|
-| UC-01 Discover datasets |
-| UC-03 Retrieve metadata |
+| UC-04 People collaboration/discovery (NIF member) |
+| UC-06 Authentication and authorisation |
 
 #### Deliverables
 
 | Deliverable | Status |
 |-------------|---------|
-| Search API | |
-| Discovery UI | |
-| Metadata service | |
+| Requirements validation workshop summary | Done |
+
 
 #### Acceptance Criteria
 
-- Search returns expected results.
-- Metadata accessible through API.
-- Demonstration completed with stakeholders.
+- All the requirements on the NIF member collaboration/discovery is discussed and recorded in a document.
+- The record (summary) document shared with stakeholders for review.
+- Review feedback accepted and updated in design.
 
 #### Dependencies
 
 | Dependency | Owner |
 |------------|--------|
-| Metadata model | |
-| Infrastructure | |
-| Authentication | |
+| Availability | All project team members |
 
 #### Risks
 
 | Risk | Mitigation |
 |--------|-------------|
-| Delayed API development | Reduce scope for demonstration |
-| Metadata inconsistencies | Validation process |
+|  |  |
+|  |  |
 
----
-
-### M2 — Federated Collaboration Release
-
-#### Objective
-
-Support cross-organisational collaboration workflows.
-
-#### Event
-
-**April 2027**
-
-#### Personas Served
-
-- Researcher
-- Data Steward
-- Developer
-- Administrator
-
-#### Use Cases Included
-
-- UC-01
-- UC-02
-- UC-03
-- UC-04
-
-#### Success Criteria
-
-- Federated workflows demonstrated.
-- Multiple organisations participating.
-- Governance reporting available.
 
 ---
 
@@ -167,9 +134,9 @@ Support cross-organisational collaboration workflows.
 
 | Milestone | Sprint | Planned Outcome |
 |------------|---------|-----------------|
-| M1 | Sprint 1 | Architecture established |
-| M1 | Sprint 2 | Search API MVP |
-| M1 | Sprint 3 | Metadata retrieval |
+| M1 | Sprint 62 | Requirements validation workshop. Requirements discussed and understood. Summary of changes shared for review. |
+| M1, M3 | Sprint 63 | Summary of changes - complete review. Authentication and authorisation design - Passport visa types. Internal discussion and formalise outcome. |
+| M2, M3 | Sprint 64 | Evaluate and finalise code to be reused from implementation registry. Start development to handle |
 | M1 | Sprint 4 | Demonstration preparation |
 | M2 | Sprint 5-12 | Federated capabilities |
 
