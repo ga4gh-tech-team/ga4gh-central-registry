@@ -1,4 +1,4 @@
-# GA4GH Registry Project Plan Template
+# GA4GH Registry Project Plan 
 
 ## 1. Project Overview
 
@@ -153,32 +153,6 @@ Capture the clarifications and decisions made during the requirements validation
 
 ---
 
-## 9. Progress Dashboard
 
-| Metric | Current | Target |
-|----------|---------|----------|
-| Milestones completed | | |
-| Use cases delivered | | |
-| Open issues | | |
-| Closed issues | | |
-| Participating organisations | | |
 
----
 
-## Recommended Visual Structure
-
-```text
-Personas
-    ↓
-Use Cases
-    ↓
-Capabilities
-    ↓
-Endpoints / Components
-    ↓
-Milestones (Events)
-    ↓
-Sprint Delivery
-```
-
-This structure keeps stakeholders focused on outcomes and milestones while allowing delivery teams to trace work down to epics, issues, pull requests, releases, and sprint activities.
