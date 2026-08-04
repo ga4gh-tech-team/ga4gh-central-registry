@@ -144,12 +144,12 @@ Capture the clarifications and decisions made during the requirements validation
 
 ## 8. Traceability Matrix
 
-| Use Case | Persona | Endpoint | Milestone | Issues/PRs |
-|-----------|----------|-----------|------------|-------------|
-| UC-01 | Researcher | `/search` | M1 | [#24](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/24), [#16](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/16), [#20](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/20) |
-| UC-02 | Data Steward | `/submit` | M2 | [#14](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/14) |
-| UC-03 | Developer | `/metadata` | M1 | [#16](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/16), [#17](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/17), [#19](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/19), [#20](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/20), [#23](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/23) |
-| UC-04 | Administrator | `/reporting` | M2 | [#11](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/11) |
+| Use Case | Persona | Milestone | Issues/PRs |
+|-----------|----------|-----------|------------|
+| UC-01 | Researcher | M1 | [#24](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/24), [#16](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/16), [#20](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/20) |
+| UC-02 | Data Steward | M2 | [#14](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/14) |
+| UC-03 | Developer | M1 | [#16](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/16), [#17](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/17), [#19](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/19), [#20](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/20), [#23](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/23) |
+| UC-04 | Administrator | M2 | [#11](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/11) |
 
 ---
 
@@ -161,7 +161,6 @@ Capture the clarifications and decisions made during the requirements validation
 
 ## 9. Related GitHub Issues
 
-_Patched by patch_doc_with_issue_links.py, matching existing issues by title._
 
 ### Epics
 
