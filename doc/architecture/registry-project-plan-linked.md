@@ -146,13 +146,66 @@ Capture the clarifications and decisions made during the requirements validation
 
 | Use Case | Persona | Endpoint | Milestone | Issues/PRs |
 |-----------|----------|-----------|------------|-------------|
-| UC-01 | Researcher | `/search` | M1 | GH Issues |
-| UC-02 | Data Steward | `/submit` | M2 | GH Issues |
-| UC-03 | Developer | `/metadata` | M1 | GH Issues |
-| UC-04 | Administrator | `/reporting` | M2 | GH Issues |
+| UC-01 | Researcher | `/search` | M1 | [#24](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/24), [#16](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/16), [#20](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/20) |
+| UC-02 | Data Steward | `/submit` | M2 | [#14](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/14) |
+| UC-03 | Developer | `/metadata` | M1 | [#16](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/16), [#17](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/17), [#19](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/19), [#20](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/20), [#23](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/23) |
+| UC-04 | Administrator | `/reporting` | M2 | [#11](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/11) |
 
 ---
 
 
 
 
+
+---
+
+## 9. Related GitHub Issues
+
+_Patched by patch_doc_with_issue_links.py, matching existing issues by title._
+
+### Epics
+
+- [#2](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/2) Epic: Standards
+  - [#8](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/8) User Story: discover GA4GH standards
+    - [#16](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/16) Feature: /api/standards endpoint
+- [#3](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/3) Epic: Organisations
+  - [#9](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/9) User Story: discover organisations
+    - [#17](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/17) Feature: /api/organisations endpoint
+- [#4](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/4) Epic: Schemas
+  - [#10](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/10) User Story: discover schemas
+    - [#18](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/18) Spike: scope /api/schemas requirements
+- [#5](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/5) Epic: People
+  - [#11](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/11) User Story: NIF member search/view
+  - [#12](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/12) User Story: community member collaboration
+- [#6](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/6) Epic: Implementations
+  - [#13](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/13) User Story: discover deployments/services
+    - [#19](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/19) Feature: /api/deployments endpoint
+    - [#20](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/20) Feature: /api/services endpoint
+  - [#14](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/14) User Story: register datasets/implementations
+- [#7](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/7) Epic: Authentication & Authorisation (cross-cutting)
+  - [#15](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/15) User Story: login & manage own data
+    - [#21](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/21) Feature: Passport integration & login flow
+    - [#22](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/22) Spike: Passport visa types
+
+### Standalone / cross-cutting
+
+- [#23](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/23) Feature: /api/service-info endpoint
+- [#24](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/24) Feature: unified cross-component discovery UI
+
+### Milestone tracking
+
+- [#25](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/25) Write M2 milestone detail section
+- [#26](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/26) Write M3 milestone detail section
+- [#27](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/27) Write M4 milestone detail section
+
+### Documentation / process gaps
+
+- [#28](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/28) Set project Target Completion date
+- [#29](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/29) Reconcile sprint numbering inconsistency
+- [#30](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/30) Replace placeholder GH Issues entries in Traceability Matrix
+- [#31](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/31) Fix 'Sprint Boot' typo in Core Components table
+
+### Open questions
+
+- [#32](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/32) Confirm Attio as Metadata Service / Reporting Service backend
+- [#33](https://github.com/ga4gh-tech-team/ga4gh-central-registry/issues/33) Scope 'Federated capabilities' (Sprint 5-12, M2)
