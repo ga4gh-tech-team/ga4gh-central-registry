@@ -35,7 +35,7 @@
 | Component | Purpose | System/technology |
 |------------|----------|---------|
 | Portal/UI | User interaction | React UI |
-| API Layer | System integration | Java, Sprint Boot|
+| API Layer | System integration | Java, Spring Boot|
 | Authentication | Identity & access | GA4GH Passport |
 | Metadata Service | Discovery | Attio |
 | Reporting Service | Analytics | Attio |
