@@ -12,7 +12,7 @@
 | Technical Lead(s) | Jimmy Payyappilly |
 | Start Date | 20 May 2026 |
 | Target Completion | |
-| Current Phase | <ul><li>- [x] Requirements gathering </li><li>- [x] Initial development </li><li>- [ ] Demo and validation </li><li>- [ ] Initial release </li><li>- [ ] Enhancements </li></ul> |
+| Current Phase | <ul><li>- [x] Requirements gathering </li><li>- [x] Initial development </li><li>- [x] Demo and validation </li><li>- [ ] Initial release </li><li>- [ ] Enhancements </li></ul> |
 
 ---
 
@@ -120,12 +120,45 @@ Capture the clarifications and decisions made during the requirements validation
 |------------|--------|
 | Availability | All project team members |
 
-#### Risks
 
-| Risk | Mitigation |
-|--------|-------------|
-|  |  |
-|  |  |
+### M2 — Initial demo of the revamped/redesigned registry 
+
+#### Objective
+
+Demonstrate the NIF member workflows (without login) operational. Personal profile, search and view fellow NIF members demonstrated 
+
+#### Event
+
+**28 August 2026**
+
+#### Personas Served
+
+- NIF members
+
+#### Use Cases Included
+
+| Use Case |
+|-----------|
+| UC-04 People collaboration/discovery (NIF member) |
+
+#### Deliverables
+
+| Deliverable | Status |
+|-------------|---------|
+| Demo to the stakeholders | Done |
+
+
+#### Acceptance Criteria
+
+- All the features for the NIF member collaboration/discovery is demonstrated.
+- The meeting summary document is used to update the requirements and create issues where the requirements have been updated.
+- Review feedback accepted and updated in the design.
+
+#### Dependencies
+
+| Dependency | Owner |
+|------------|--------|
+| Availability | All project team members |
 
 
 ---
