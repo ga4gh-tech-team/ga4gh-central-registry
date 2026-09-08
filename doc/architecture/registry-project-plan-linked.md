@@ -1,4 +1,4 @@
-# GA4GH Registry Project Plan 
+# GA4GH Registry Project Plan - Plenary 2026 (Singapore)
 
 ## 1. Project Overview
 
