@@ -11,7 +11,7 @@
 | Delivery Lead(s) | Jimmy Payyappilly |
 | Technical Lead(s) | Jimmy Payyappilly |
 | Start Date | 20 May 2026 |
-| Target Completion | |
+| Target Completion | 25 September 2026 |
 | Current Phase | <ul><li>- [x] Requirements gathering </li><li>- [x] Initial development </li><li>- [x] Demo and validation </li><li>- [ ] Initial release </li><li>- [ ] Enhancements </li></ul> |
 
 ---
