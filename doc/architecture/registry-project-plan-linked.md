@@ -169,9 +169,9 @@ Demonstrate the NIF member workflows (without login) operational. Personal profi
 |------------|---------|-----------------|
 | M1 | Sprint 62 | Requirements validation workshop. Requirements discussed and understood. Summary of changes shared for review. |
 | M1, M3 | Sprint 63 | Summary of changes - complete review. Authentication and authorisation design - Passport visa types. Internal discussion and formalise outcome. |
-| M2, M3 | Sprint 64 | Evaluate and finalise code to be reused from implementation registry. Start development to handle |
-| M1 | Sprint 4 | Demonstration preparation |
-| M2 | Sprint 5-12 | Federated capabilities |
+| M2, M3 | Sprint 64, 65 | Evaluate and finalise code to be reused from implementation registry. Start development to handle |
+| M2 | Sprint 66 | Demonstration |
+| M4 | Sprint 67 | Plenary prep including screenshots, and poster |
 
 ---
 
