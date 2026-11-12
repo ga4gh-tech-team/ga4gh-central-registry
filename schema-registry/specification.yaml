@@ -11,12 +11,46 @@ info:
 paths:
   /namespaces:
     get:
-      summary: Return all namespaces in the registry.
       operationId: listNamespaces
+      summary: Return all namespaces in the registry.
       responses:
         '200':
           $ref: '#/components/responses/NamespacesResponse'
-    
+  
+  /schemas/{namespace}:
+    get:
+      operationId: listNamespaceSchema
+      summary: > 
+        Return all schemas for the given namespace.
+        Can be filtered using query parameters.
+      description: >
+        Returns a list of schemas under this namespace. The list can
+        be filtered using query parameters matching properties of the Schema object.
+      parameters:
+        - name: namespace
+          in: path
+          description: The namespace containing the schema.
+          schema:
+            type: string
+        - name: schema
+          in: query
+          description: Query specific schema in the namespace.
+          schema:
+            type: string
+        - name: maintainers
+          in: query
+          description: Query schemas from specific maintainers.
+          schema:
+            type: string
+        - name: maturity_level
+          in: query
+          description: Query schemas with specific maturity level.
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/NamespaceSchemasResponse'
+
 components:
   schemas:
     Namespace:
@@ -44,6 +78,49 @@ components:
         name: GA4GH
         server_url: https://example_1.com/schemas
         contact_url: https://www.ga4gh.org/
+    NamespaceSchema:
+      type: object
+      description: List all schemas linked to a namespace.
+      properties:
+        name:
+          type: string
+          description: Name of the schema.
+          example: phenopackets
+        namespace:
+          type: string
+          description: Name of the namespace containing the schema.
+          example: GA4GH
+        latest_version:
+          type: string
+          description: >
+            Latest version of this schema that currently exists in this repository.
+          example: 2.0.0
+        maintainers:
+          type: array
+          description: Name of maintainer(s) of the schema.
+          items:
+            type: string
+          example: [Jane Doe, John Smith]
+        workstream:
+          type: string
+          description: Workstream that developed the schema.
+          example: Clinical/Phenotypic Data Capture
+        maturity_level:
+          type: string
+          enum: [draft, trial_use, normative, deprecated]
+          description: > 
+            The maturity level of the schema, as defined by the
+            [GA4GH GKS Maturity Model specification]
+            (https://vrs.ga4gh.org/en/2.0.0-ballot.2024-11/appendices/maturity_model.html).
+          example: normative
+      required: [name, namespace, latest_version]
+      example:
+        name: phenopackets
+        namespace: GA4GH
+        latest_version: 2.0.0
+        maintainers: [Jane Doe, John Smith]
+        workstream: Clinical/Phenotypic Data Capture
+        maturity_level: normative
   
   responses:
     NamespacesResponse:
@@ -66,3 +143,31 @@ components:
             - name: CanDIG
               server_url: https://example_2.com/schemas
               contact_url: https://candig.ca/contact/
+    NamespaceSchemasResponse:
+      description: Lists all schemas linked to a namespace
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NamespaceSchema'
+            required: [results]
+          example:
+            results:
+            - name: phenopackets
+              namespace: GA4GH
+              latest_version: 2.0.0
+              maintainers: [Jane Doe, John Smith]
+              workstream: Clinical & Phenotypic Data Capture
+              maturity_level: normative
+            - name: vrs
+              namespace: GA4GH
+              latest_version: 2.0.0
+              maintainers: [Jane Doe]
+              workstream: Genomic Knowledge Standards
+              maturity_level: normative
+
+  
