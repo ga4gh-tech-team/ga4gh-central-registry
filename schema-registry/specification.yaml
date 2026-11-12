@@ -1,0 +1,68 @@
+openapi: 3.1.1
+
+info:
+  title: GA4GH Schema Registry API
+  version: 0.1.0
+  description: > 
+    The Schema Registry API enables browsing and querying versioned GA4GH JSON schemas.
+    It provides a standard for representing and sharing schemas, and
+    can be implemented by independent providers, which can then interoperate to share schemas across domains.
+
+paths:
+  /namespaces:
+    get:
+      summary: Return all namespaces in the registry.
+      operationId: listNamespaces
+      responses:
+        '200':
+          $ref: '#/components/responses/NamespacesResponse'
+    
+components:
+  schemas:
+    Namespace:
+      type: object
+      description: > 
+        Lists all namespaces contained in the registry.
+        A namescpace usually refers to the organization that developed the schema.
+      properties:
+        name:
+          type: string
+          description: Identifier for the namespace.
+          example: GA4GH
+        server_url:
+          type: string
+          format: uri
+          description: URL for the server hosting the schemas for a namespace.
+          example: https://example.com/schemas
+        contact_url:
+          type: string
+          format: uri
+          description: URL to find more information about the namespace.
+          example: https://www.ga4gh.org/
+      required: [name, server_url]
+      example:
+        name: GA4GH
+        server_url: https://example_1.com/schemas
+        contact_url: https://www.ga4gh.org/
+  
+  responses:
+    NamespacesResponse:
+      description: Lists all namespaces hosted by the server.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Namespace'
+            required: [results]
+          example:
+            results:
+            - name: GA4GH
+              server_url: https://example_1.com/schemas
+              contact_url: https://ga4gh.org/
+            - name: CanDIG
+              server_url: https://example_2.com/schemas
+              contact_url: https://candig.ca/contact/
