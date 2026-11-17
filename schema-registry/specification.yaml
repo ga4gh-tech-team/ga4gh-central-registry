@@ -10,12 +10,12 @@ info:
 
 paths:
   /schemas:
-   get:
-    operationId: listSchemas
-    summary: Return all schemas with the queried properties.
-    responses:
-      '200':
-        $ref: '#/components/responses/SchemasResponse'
+    get:
+     operationId: listSchemas
+     summary: Return all schemas with the queried properties.
+     responses:
+       '200':
+         $ref: '#/components/responses/SchemasResponse'
   /namespaces:
     get:
       operationId: listNamespaces
@@ -47,6 +47,8 @@ paths:
         - name: workstream
           in: query
           description: Query schemas that are part of the specified workstream.
+          schema:
+            type: string
         - name: maintainers
           in: query
           description: Query schemas from specific maintainers.
@@ -69,11 +71,13 @@ paths:
       parameters:
       - name: namespace
         in: path
+        required: true
         description: The namespace containing the schema.
         schema:
           type: string
       - name: schema_name
         in: path
+        required: true
         description: The name of the schema.
         schema:
           type: string
@@ -97,7 +101,7 @@ components:
           type: string
           format: uri
           description: URL for the server hosting the schemas for a namespace.
-          example: https://example.com/schemas
+          example: https://example1.com/schemas
         contact_url:
           type: string
           format: uri
@@ -106,7 +110,7 @@ components:
       required: [name, server_url]
       example:
         name: GA4GH
-        server_url: https://example_1.com/schemas
+        server_url: https://example1.com/schemas
         contact_url: https://www.ga4gh.org/
     SchemaRecord:
       type: object
@@ -164,26 +168,42 @@ components:
           description: > 
             Immutable identifier for this schema version.
             Follows the [GA4GH GKS Maturity Model specification](https://vrs.ga4gh.org/en/2.0.0-ballot.2024-11/appendices/maturity_model.html).
+          example: 2.0.0
         status:
           type: string
           enum: [current, deprecated, latest]
+          example: latest
         release_date:
           type: string
           format: date-time
+          example: '2021-06-01T00:00:00Z'
         contributors:
           type: array
           items:
             type: string
+          example: [Jane Doe, John Smith]
         release_notes:
           type: string
+          example: Major revision of the Phenopacket schema.
         tags:
           type: object
           additionalProperties:
             type: string
-          description: > 
+          description: >
             User-definable key/value pairs that provide additional
             information about this schema version.
+          example:
+            json_schema_draft: '2020-12'
       required: [name, version]
+      example:
+        name: phenopackets
+        version: 2.0.0
+        status: latest
+        release_date: '2021-06-01T00:00:00Z'
+        contributors: [Jane Doe, John Smith]
+        release_notes: Major revision of the Phenopacket schema.
+        tags:
+          json_schema_draft: '2020-12'
 
   responses:
     NamespacesResponse:
@@ -201,10 +221,10 @@ components:
           example:
             results:
             - name: GA4GH
-              server_url: https://example_1.com/schemas
-              contact_url: https://ga4gh.org/
+              server_url: https://example1.com/schemas
+              contact_url: https://www.ga4gh.org/
             - name: CanDIG
-              server_url: https://example_2.com/schemas
+              server_url: https://example2.com/schemas
               contact_url: https://candig.ca/contact/
     SchemasResponse:
       description: Lists all schemas linked to a namespace
@@ -244,5 +264,21 @@ components:
                 items:
                   $ref: '#/components/schemas/SchemaVersions'
             required: [results]
-
-  
+          example:
+            results:
+            - name: phenopackets
+              version: 2.0.0
+              status: latest
+              release_date: '2021-06-01T00:00:00Z'
+              contributors: [Jane Doe, John Smith]
+              release_notes: Major revision of the Phenopacket schema.
+              tags:
+                json_schema_draft: '2020-12'
+            - name: phenopackets
+              version: 1.0.0
+              status: deprecated
+              release_date: '2019-10-01T00:00:00Z'
+              contributors: [Jane Doe]
+              release_notes: Initial release of the Phenopacket schema.
+              tags:
+                json_schema_draft: '2020-12'
