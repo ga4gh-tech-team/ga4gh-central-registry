@@ -13,9 +13,16 @@ paths:
     get:
       operationId: listSchemas
       summary: Return all schemas with the queried properties.
+      parameters:
+        - $ref: '#/components/parameters/SchemaFilter'
+        - $ref: '#/components/parameters/WorkstreamFilter'
+        - $ref: '#/components/parameters/MaintainersFilter'
+        - $ref: '#/components/parameters/MaturityLevelFilter'
       responses:
         '200':
           $ref: '#/components/responses/SchemasResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
   /namespaces:
     get:
       operationId: listNamespaces
@@ -33,33 +40,11 @@ paths:
         Returns a list of schemas under this namespace. The list can
         be filtered using query parameters matching properties of the Schema object.
       parameters:
-        - name: namespace
-          in: path
-          required: true
-          description: The namespace containing the schema.
-          schema:
-            type: string
-        - name: schema
-          in: query
-          description: Query specific schema in the namespace.
-          schema:
-            type: string
-        - name: workstream
-          in: query
-          description: Query schemas that are part of the specified workstream.
-          schema:
-            type: string
-        - name: maintainers
-          in: query
-          description: Query schemas from specific maintainers.
-          schema:
-            type: string
-        - name: maturity_level
-          in: query
-          description: Query schemas with specific maturity level.
-          schema:
-            type: string
-            enum: [draft, trial_use, normative, deprecated]
+        - $ref: '#/components/parameters/NamespacePath'
+        - $ref: '#/components/parameters/SchemaFilter'
+        - $ref: '#/components/parameters/WorkstreamFilter'
+        - $ref: '#/components/parameters/MaintainersFilter'
+        - $ref: '#/components/parameters/MaturityLevelFilter'
       responses:
         '200':
           $ref: '#/components/responses/SchemasResponse'
@@ -74,18 +59,8 @@ paths:
         Return all versions for the queried schema.
       description: Return all versions for the specified schema.
       parameters:
-      - name: namespace
-        in: path
-        required: true
-        description: The namespace containing the schema.
-        schema:
-          type: string
-      - name: schema_name
-        in: path
-        required: true
-        description: The name of the schema.
-        schema:
-          type: string
+        - $ref: '#/components/parameters/NamespacePath'
+        - $ref: '#/components/parameters/SchemaNamePath'
       responses:
         '200':
           $ref: '#/components/responses/SchemaVersionsResponse'
@@ -96,27 +71,9 @@ paths:
       operationId: getJSONSchema
       summary: Returns the JSON Schema document itself
       parameters:
-        - name: namespace
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The namespace of the schema.
-        - name: schema_name
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The name of the schema.
-        - name: version
-          in: path
-          required: true
-          schema:
-            type: string
-          description: >
-            The semantic version.
-            The special value `latest` is equivalent to specifying the same string
-            as in the target schema's `latest_version` property.
+      - $ref: '#/components/parameters/NamespacePath'
+      - $ref: '#/components/parameters/SchemaNamePath'
+      - $ref: '#/components/parameters/VersionPath'
       responses:
         '200':
           $ref: '#/components/responses/JSONSchemaResponse'
@@ -126,6 +83,57 @@ paths:
           $ref: '#/components/responses/NotFound'
 
 components:
+  parameters:
+    NamespacePath:
+      name: namespace
+      in: path
+      required: true
+      description: The namespace containing the schema.
+      schema:
+        type: string
+    SchemaNamePath:
+      name: schema_name
+      in: path
+      required: true
+      description: The name of the schema.
+      schema:
+        type: string
+    VersionPath:
+      name: version
+      in: path
+      required: true
+      schema:
+        type: string
+      description: >
+        The semantic version.
+        The special value `latest` is equivalent to specifying the same string
+        as in the target schema's `latest_version` property.
+    SchemaFilter:
+      name: schema
+      in: query
+      description: Query a specific schema by name.
+      schema:
+        type: string
+    WorkstreamFilter:
+      name: workstream
+      in: query
+      description: Query schemas that are part of the specified workstream.
+      schema:
+        type: string
+    MaintainersFilter:
+      name: maintainers
+      in: query
+      description: Query schemas from specific maintainers.
+      schema:
+        type: string
+    MaturityLevelFilter:
+      name: maturity_level
+      in: query
+      description: Query schemas with specific maturity level.
+      schema:
+        type: string
+        enum: [draft, trial_use, normative, deprecated]
+
   schemas:
     Namespace:
       type: object
@@ -205,6 +213,7 @@ components:
           example: phenopackets
         version:
           type: string
+          pattern: '\d\.\d.\d|latest'
           description: > 
             Immutable identifier for this schema version.
             Follows the [GA4GH GKS Maturity Model specification](https://vrs.ga4gh.org/en/2.0.0-ballot.2024-11/appendices/maturity_model.html).
