@@ -11,11 +11,11 @@ info:
 paths:
   /schemas:
     get:
-     operationId: listSchemas
-     summary: Return all schemas with the queried properties.
-     responses:
-       '200':
-         $ref: '#/components/responses/SchemasResponse'
+      operationId: listSchemas
+      summary: Return all schemas with the queried properties.
+      responses:
+        '200':
+          $ref: '#/components/responses/SchemasResponse'
   /namespaces:
     get:
       operationId: listNamespaces
@@ -84,6 +84,35 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/SchemaVersionsResponse'
+  /schemas/{namespace}/{schema_name}/{version}:
+    get:
+      operationId: getJSONSchema
+      summary: Returns the JSON Schema document itself
+      parameters:
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The namespace of the schema.
+        - name: schema_name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the schema.
+        - name: version
+          in: path
+          required: true
+          schema:
+            type: string
+          description: >
+            The semantic version.
+            The special value `latest` is equivalent to specifying the same string
+            as in the target schema's `latest_released_version` property.
+      responses:
+        200:
+          $ref: '#/components/responses/JSONSchemaResponse'
 
 components:
   schemas:
@@ -176,7 +205,7 @@ components:
         release_date:
           type: string
           format: date-time
-          example: '2021-06-01T00:00:00Z'
+          example: '2021-06-01'
         contributors:
           type: array
           items:
@@ -199,11 +228,9 @@ components:
         name: phenopackets
         version: 2.0.0
         status: latest
-        release_date: '2021-06-01T00:00:00Z'
+        release_date: '2021-06-01'
         contributors: [Jane Doe, John Smith]
         release_notes: Major revision of the Phenopacket schema.
-        tags:
-          json_schema_draft: '2020-12'
 
   responses:
     NamespacesResponse:
@@ -269,16 +296,35 @@ components:
             - name: phenopackets
               version: 2.0.0
               status: latest
-              release_date: '2021-06-01T00:00:00Z'
+              release_date: '2021-06-01'
               contributors: [Jane Doe, John Smith]
               release_notes: Major revision of the Phenopacket schema.
-              tags:
-                json_schema_draft: '2020-12'
             - name: phenopackets
               version: 1.0.0
               status: deprecated
-              release_date: '2019-10-01T00:00:00Z'
+              release_date: '2019-10-01'
               contributors: [Jane Doe]
               release_notes: Initial release of the Phenopacket schema.
-              tags:
-                json_schema_draft: '2020-12'
+    JSONSchemaResponse:
+      description: The JSON Schema for the requested version.
+      content:
+        application/json:
+          schema:
+            type: object
+          example:
+            {
+              "$id": "https://example1.com/schemas/genomics-analysis/versions/2.0.1",
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "title": "Genomics Analysis Schema",
+              "type": "object",
+              "properties": {
+                "sample_id": {
+                  "type": "string",
+                  "description": "Unique identifier for the biological sample."
+                },
+                "sequencing_platform": {
+                  "type": "string",
+                  "description": "Platform used for sequencing, e.g., Illumina NovaSeq."
+                }
+              }
+            }
