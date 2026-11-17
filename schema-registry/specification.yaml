@@ -9,6 +9,13 @@ info:
     can be implemented by independent providers, which can then interoperate to share schemas across domains.
 
 paths:
+  /schemas:
+   get:
+    operationId: listSchemas
+    summary: Return all schemas with the queried properties.
+    responses:
+      '200':
+        $ref: '#/components/responses/SchemasResponse'
   /namespaces:
     get:
       operationId: listNamespaces
@@ -16,10 +23,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/NamespacesResponse'
-  
   /schemas/{namespace}:
     get:
-      operationId: listNamespaceSchema
+      operationId: listNamespaceSchemas
       summary: > 
         Return all schemas for the given namespace.
         Can be filtered using query parameters.
@@ -29,6 +35,7 @@ paths:
       parameters:
         - name: namespace
           in: path
+          required: true
           description: The namespace containing the schema.
           schema:
             type: string
@@ -37,6 +44,9 @@ paths:
           description: Query specific schema in the namespace.
           schema:
             type: string
+        - name: workstream
+          in: query
+          description: Query schemas that are part of the specified workstream.
         - name: maintainers
           in: query
           description: Query schemas from specific maintainers.
@@ -49,7 +59,27 @@ paths:
             type: string
       responses:
         '200':
-          $ref: '#/components/responses/NamespaceSchemasResponse'
+          $ref: '#/components/responses/SchemasResponse'
+  /schemas/{namespace}/{schema_name}:
+    get:
+      operationId: listSchemaVersions
+      summary: > 
+        Return all version for the queried schema.
+      description: Return all versions for the specified schema.
+      parameters:
+      - name: namespace
+        in: path
+        description: The namespace containing the schema.
+        schema:
+          type: string
+      - name: schema_name
+        in: path
+        description: The name of the schema.
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/SchemaVersionsResponse'
 
 components:
   schemas:
@@ -57,7 +87,7 @@ components:
       type: object
       description: > 
         Lists all namespaces contained in the registry.
-        A namescpace usually refers to the organization that developed the schema.
+        A namespace usually refers to the organization that developed the schema.
       properties:
         name:
           type: string
@@ -78,9 +108,9 @@ components:
         name: GA4GH
         server_url: https://example_1.com/schemas
         contact_url: https://www.ga4gh.org/
-    NamespaceSchema:
+    SchemaRecord:
       type: object
-      description: List all schemas linked to a namespace.
+      description: List all queried schemas.
       properties:
         name:
           type: string
@@ -103,7 +133,7 @@ components:
           example: [Jane Doe, John Smith]
         workstream:
           type: string
-          description: Workstream that developed the schema.
+          description: Workstream that manages the schema.
           example: Clinical/Phenotypic Data Capture
         maturity_level:
           type: string
@@ -121,7 +151,40 @@ components:
         maintainers: [Jane Doe, John Smith]
         workstream: Clinical/Phenotypic Data Capture
         maturity_level: normative
-  
+    SchemaVersions:
+      type: object
+      description: List all versions of the queried schema.
+      properties:
+        name:
+          type: string
+          description: Name of the schema.
+          example: phenopackets
+        version:
+          type: string
+          description: > 
+            Immutable identifier for this schema version.
+            Follows the [GA4GH GKS Maturity Model specification](https://vrs.ga4gh.org/en/2.0.0-ballot.2024-11/appendices/maturity_model.html).
+        status:
+          type: string
+          enum: [current, deprecated, latest]
+        release_date:
+          type: string
+          format: date-time
+        contributors:
+          type: array
+          items:
+            type: string
+        release_notes:
+          type: string
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          description: > 
+            User-definable key/value pairs that provide additional
+            information about this schema version.
+      required: [name, version]
+
   responses:
     NamespacesResponse:
       description: Lists all namespaces hosted by the server.
@@ -143,7 +206,7 @@ components:
             - name: CanDIG
               server_url: https://example_2.com/schemas
               contact_url: https://candig.ca/contact/
-    NamespaceSchemasResponse:
+    SchemasResponse:
       description: Lists all schemas linked to a namespace
       content:
         application/json:
@@ -153,7 +216,7 @@ components:
               results:
                 type: array
                 items:
-                  $ref: '#/components/schemas/NamespaceSchema'
+                  $ref: '#/components/schemas/SchemaRecord'
             required: [results]
           example:
             results:
@@ -161,7 +224,7 @@ components:
               namespace: GA4GH
               latest_version: 2.0.0
               maintainers: [Jane Doe, John Smith]
-              workstream: Clinical & Phenotypic Data Capture
+              workstream: Clinical/Phenotypic Data Capture
               maturity_level: normative
             - name: vrs
               namespace: GA4GH
@@ -169,5 +232,17 @@ components:
               maintainers: [Jane Doe]
               workstream: Genomic Knowledge Standards
               maturity_level: normative
+    SchemaVersionsResponse:
+      description: List all versions of the specified schema.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SchemaVersions'
+            required: [results]
 
   
