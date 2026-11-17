@@ -59,14 +59,19 @@ paths:
           description: Query schemas with specific maturity level.
           schema:
             type: string
+            enum: [draft, trial_use, normative, deprecated]
       responses:
         '200':
           $ref: '#/components/responses/SchemasResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
   /schemas/{namespace}/{schema_name}:
     get:
       operationId: listSchemaVersions
       summary: > 
-        Return all version for the queried schema.
+        Return all versions for the queried schema.
       description: Return all versions for the specified schema.
       parameters:
       - name: namespace
@@ -84,6 +89,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/SchemaVersionsResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
   /schemas/{namespace}/{schema_name}/{version}:
     get:
       operationId: getJSONSchema
@@ -109,10 +116,14 @@ paths:
           description: >
             The semantic version.
             The special value `latest` is equivalent to specifying the same string
-            as in the target schema's `latest_released_version` property.
+            as in the target schema's `latest_version` property.
       responses:
-        200:
+        '200':
           $ref: '#/components/responses/JSONSchemaResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
 
 components:
   schemas:
@@ -204,7 +215,7 @@ components:
           example: latest
         release_date:
           type: string
-          format: date-time
+          format: date
           example: '2021-06-01'
         contributors:
           type: array
@@ -231,6 +242,19 @@ components:
         release_date: '2021-06-01'
         contributors: [Jane Doe, John Smith]
         release_notes: Major revision of the Phenopacket schema.
+    Error:
+      type: object
+      description: An object that can optionally include information about the error.
+      properties:
+        message:
+          type: string
+          description: A detailed error message.
+          example: Namespace 'GA4GH' not found.
+        status_code:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+      required: [message, status_code]
 
   responses:
     NamespacesResponse:
@@ -328,3 +352,17 @@ components:
                 }
               }
             }
+    BadRequest:
+      description: >
+        The request is malformed, a query parameter has an invalid value
+        or the version is neither a semantic version nor `latest`.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested namespace, schema or version was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
